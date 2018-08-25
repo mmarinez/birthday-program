@@ -1,9 +1,15 @@
 import datetime
 
 def get_user_date_input():
-    year = int(input('Enter your birth year: '))
-    month = int(input('Enter your birth month: '))
-    day = int(input('Enter yout birth day: '))
+
+    while True:
+        try:
+            year = int(input('Enter your birth year: '))
+            month = int(input('Enter your birth month: '))
+            day = int(input('Enter yout birth day: '))
+            break
+        except:
+            print('Invalid input')
 
     birthday = datetime.date(year, month, day)
     return birthday
