@@ -1,26 +1,52 @@
 import datetime
 
-def get_user_date_input():
+def get_year_input():
 
     while True:
         try:
             year = int(input('Enter your birth year: '))
-            month = int(input('Enter your birth month: '))
-            day = int(input('Enter yout birth day: '))
             break
         except:
-            print('Invalid input')
+            print('Invalid year')
 
-    birthday = datetime.date(year, month, day)
+    return year
+
+def get_month_input():
+
+    while True:
+        try:
+            month = int(input('Enter your birth month: '))
+            break
+        except:
+            print('Invalid month')
+
+    return month
+
+def get_day_input():
+
+    while True:
+        try:
+            day = int(input('Enter your birth day: '))
+            break
+        except:
+            print('Invalid day')
+
+    return day
+
+def get_user_date_input():
+   
+    birthday = datetime.date(get_year_input(), get_month_input(), get_day_input())
     return birthday
 
 def difference_between_dates(birthday,currentday):
+
     this_year_birthday = datetime.date(currentday.year, birthday.month, birthday.day)
 
     days_left = this_year_birthday - currentday
     return days_left.days
 
 def print_birthday_info(days):
+    
     if days < 0:
         print('Your birthday was {} days ago this year'.format(-days))
     elif days > 0:
